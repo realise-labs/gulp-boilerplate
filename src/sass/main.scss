@@ -1,0 +1,12 @@
+p { display: flex; }
+
+// Reset css needs to go at the top!
+@import 'vendor/_meyer-reset.scss';
+
+@import 'common/_base.scss';
+
+@import 'components/_components.scss';
+
+@import 'vendor/_grid12.scss'; //Bootstrap grid
+@import 'vendor/_magnific-popup.scss'; //Modal windows
+@import 'vendor/_slick.scss'; //Responsive carousel
