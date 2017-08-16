@@ -1,34 +1,34 @@
 /* Magnific Popup CSS */
 .mfp-bg {
-  top: 0;
-  left: 0;
-  width: 100%;
+  background: #0b0b0b;
   height: 100%;
-  z-index: 1042;
+  left: 0;
+  opacity: 0.75 !important;
   overflow: hidden;
   position: fixed;
-  background: #0b0b0b;
-  opacity: 0.75 !important; }
+  top: 0;
+  width: 100%;
+  z-index: 1042; }
 
 .mfp-wrap {
-  top: 0;
-  left: 0;
-  width: 100%;
+  -webkit-backface-visibility: hidden;
   height: 100%;
-  z-index: 1043;
-  position: fixed;
+  left: 0;
   outline: none !important;
-  -webkit-backface-visibility: hidden; }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1043; }
 
 .mfp-container {
-  text-align: center;
-  position: absolute;
-  width: 100%;
+  box-sizing: border-box;
   height: 100%;
   left: 0;
-  top: 0;
   padding: 0 8px;
-  box-sizing: border-box; }
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%; }
 
 .mfp-container:before {
   content: '';
@@ -40,33 +40,33 @@
   display: none; }
 
 .mfp-content {
-  position: relative;
   display: inline-block;
-  vertical-align: middle;
   margin: 0 auto;
+  position: relative;
   text-align: left;
+  vertical-align: middle;
   z-index: 1045; }
 
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
-  width: 100%;
-  cursor: auto; 
+  cursor: auto;
+  width: 100%; 
 
   .video-container {
-      width: 100%;
       padding-top: 56.25%; /* 16:9 Aspect Ratio */
       position: relative;
+      width: 100%;
 
 
 
       iframe {
-           position: absolute;
-           top: 0;
-           left: 0;
            bottom: 0;
-           right: 0;
-           width: 100%;
            height: 100%;
+           left: 0;
+           position: absolute;
+           right: 0;
+           top: 0;
+           width: 100%;
       }
   }
 }
@@ -104,13 +104,13 @@
 
 .mfp-preloader {
   color: #CCC;
+  left: 8px;
+  margin-top: -0.8em;
   position: absolute;
+  right: 8px;
+  text-align: center;
   top: 50%;
   width: auto;
-  text-align: center;
-  margin-top: -0.8em;
-  left: 8px;
-  right: 8px;
   z-index: 1044; }
   .mfp-preloader a {
     color: #CCC; }
@@ -125,37 +125,37 @@
 
 button.mfp-close,
 button.mfp-arrow {
-  overflow: visible;
-  cursor: pointer;
+  -webkit-appearance: none;
   background: transparent;
   border: 0;
-  -webkit-appearance: none;
+  box-shadow: none;
+  cursor: pointer;
   display: block;
   outline: none;
+  overflow: visible;
   padding: 0;
-  z-index: 1046;
-  box-shadow: none;
-  touch-action: manipulation; }
+  touch-action: manipulation;
+  z-index: 1046; }
 
 button::-moz-focus-inner {
-  padding: 0;
-  border: 0; }
+  border: 0;
+  padding: 0; }
 
 .mfp-close {
-  width: 44px;
+  color: #FFF;
+  font-family: Arial, Baskerville, monospace;
+  font-size: 28px;
+  font-style: normal;
   height: 44px;
   line-height: 44px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  text-decoration: none;
-  text-align: center;
   opacity: 0.65;
   padding: 0 0 18px 10px;
-  color: #FFF;
-  font-style: normal;
-  font-size: 28px;
-  font-family: Arial, Baskerville, monospace; }
+  position: absolute;
+  right: 0;
+  text-align: center;
+  text-decoration: none;
+  top: 0;
+  width: 44px; }
   .mfp-close:hover,
   .mfp-close:focus {
     opacity: 1; }
@@ -168,30 +168,30 @@ button::-moz-focus-inner {
 .mfp-image-holder .mfp-close,
 .mfp-iframe-holder .mfp-close {
   color: #FFF;
+  padding-right: 6px;
   right: -6px;
   text-align: right;
-  padding-right: 6px;
   width: 100%; }
 
 .mfp-counter {
-  position: absolute;
-  top: 0;
-  right: 0;
   color: #CCC;
   font-size: 12px;
   line-height: 18px;
+  position: absolute;
+  right: 0;
+  top: 0;
   white-space: nowrap; }
 
 .mfp-arrow {
-  position: absolute;
-  opacity: 0.65;
-  margin: 0;
-  top: 50%;
-  margin-top: -55px;
-  padding: 0;
-  width: 90px;
   height: 110px;
-  -webkit-tap-highlight-color: transparent; }
+  margin: 0;
+  margin-top: -55px;
+  opacity: 0.65;
+  padding: 0;
+  position: absolute;
+  -webkit-tap-highlight-color: transparent;
+  top: 50%;
+  width: 90px; }
   .mfp-arrow:active {
     margin-top: -54px; }
   .mfp-arrow:hover,
@@ -199,23 +199,23 @@ button::-moz-focus-inner {
     opacity: 1; }
   .mfp-arrow:before,
   .mfp-arrow:after {
+    border: medium inset transparent;
     content: '';
     display: block;
-    width: 0;
     height: 0;
-    position: absolute;
     left: 0;
-    top: 0;
-    margin-top: 35px;
     margin-left: 35px;
-    border: medium inset transparent; }
+    margin-top: 35px;
+    position: absolute;
+    top: 0;
+    width: 0; }
   .mfp-arrow:after {
-    border-top-width: 13px;
     border-bottom-width: 13px;
+    border-top-width: 13px;
     top: 8px; }
   .mfp-arrow:before {
-    border-top-width: 21px;
     border-bottom-width: 21px;
+    border-top-width: 21px;
     opacity: 0.7; }
 
 .mfp-arrow-left {
@@ -224,8 +224,8 @@ button::-moz-focus-inner {
     border-right: 17px solid #FFF;
     margin-left: 31px; }
   .mfp-arrow-left:before {
-    margin-left: 25px;
-    border-right: 27px solid #3F3F3F; }
+    border-right: 27px solid #3F3F3F;
+    margin-left: 25px; }
 
 .mfp-arrow-right {
   right: 0; }
@@ -236,57 +236,57 @@ button::-moz-focus-inner {
     border-left: 27px solid #3F3F3F; }
 
 .mfp-iframe-holder {
-  padding-top: 40px;
-  padding-bottom: 40px; }
+  padding-bottom: 40px;
+  padding-top: 40px; }
   .mfp-iframe-holder .mfp-content {
     line-height: 0;
-    width: 100%;
-    max-width: 900px; }
+    max-width: 900px;
+    width: 100%; }
   .mfp-iframe-holder .mfp-close {
     top: -40px; }
 
 .mfp-iframe-scaler {
-  width: 100%;
   height: 0;
   overflow: hidden;
-  padding-top: 56.25%; }
+  padding-top: 56.25%;
+  width: 100%; }
   .mfp-iframe-scaler iframe {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    background: #000;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #000; }
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%; }
 
 /* Main image in popup */
 img.mfp-img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  line-height: 0;
   box-sizing: border-box;
+  display: block;
+  height: auto;
+  line-height: 0;
+  margin: 0 auto;
+  max-width: 100%;
   padding: 40px 0 40px;
-  margin: 0 auto; }
+  width: auto; }
 
 /* The shadow behind the image */
 .mfp-figure {
   line-height: 0; }
   .mfp-figure:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 40px;
+    background: #444;
     bottom: 40px;
-    display: block;
-    right: 0;
-    width: auto;
-    height: auto;
-    z-index: -1;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #444; }
+    content: '';
+    display: block;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: auto;
+    z-index: -1; }
   .mfp-figure small {
     color: #BDBDBD;
     display: block;
@@ -296,19 +296,19 @@ img.mfp-img {
     margin: 0; }
 
 .mfp-bottom-bar {
+  cursor: auto;
+  left: 0;
   margin-top: -36px;
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
-  cursor: auto; }
+  width: 100%; }
 
 .mfp-title {
-  text-align: left;
-  line-height: 18px;
   color: #F3F3F3;
-  word-wrap: break-word;
-  padding-right: 36px; }
+  line-height: 18px;
+  padding-right: 36px;
+  text-align: left;
+  word-wrap: break-word; }
 
 .mfp-image-holder .mfp-content {
   max-width: 100%; }
@@ -326,34 +326,34 @@ img.mfp-img {
   .mfp-img-mobile img.mfp-img {
     padding: 0; }
   .mfp-img-mobile .mfp-figure:after {
-    top: 0;
-    bottom: 0; }
+    bottom: 0;
+    top: 0; }
   .mfp-img-mobile .mfp-figure small {
     display: inline;
     margin-left: 5px; }
   .mfp-img-mobile .mfp-bottom-bar {
     background: rgba(0, 0, 0, 0.6);
     bottom: 0;
+    box-sizing: border-box;
     margin: 0;
-    top: auto;
     padding: 3px 5px;
     position: fixed;
-    box-sizing: border-box; }
+    top: auto; }
     .mfp-img-mobile .mfp-bottom-bar:empty {
       padding: 0; }
   .mfp-img-mobile .mfp-counter {
     right: 5px;
     top: 3px; }
   .mfp-img-mobile .mfp-close {
-    top: 0;
-    right: 0;
-    width: 35px;
+    background: rgba(0, 0, 0, 0.6);
     height: 35px;
     line-height: 35px;
-    background: rgba(0, 0, 0, 0.6);
+    padding: 0;
     position: fixed;
+    right: 0;
     text-align: center;
-    padding: 0; } }
+    top: 0;
+    width: 35px; } }
 
 @media all and (max-width: 900px) {
   .mfp-arrow {
@@ -373,7 +373,7 @@ img.mfp-img {
 /* add by JH */
 
 .mfp-content {
-    width: 90% !important;
     max-width: 800px;
     text-align: center;
+    width: 90% !important;
   }

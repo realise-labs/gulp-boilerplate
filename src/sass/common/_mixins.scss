@@ -9,16 +9,15 @@
 
 // font sizes declared after CSS reset has been applied
 @mixin font-size($sizeValue: 1.6) {
-  font-size: ($sizeValue * 10) + px;
-  font-size: $sizeValue + rem;
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
 }
-
 
 @mixin border-radius($radius) {
 	-webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
 }
 
 @mixin transition($type : all, $time : .25s, $easing : ease-in-out) {
@@ -64,15 +63,15 @@
 
 	@font-face {
 		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
-		speak: none;
-		font-style: normal;
-		font-weight: normal;
-		font-variant: normal;
-		text-transform: none;
 		-webkit-font-smoothing: antialiased;
+		font-style: $style;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: $weight;
+		font-weight: normal;
+		speak: none;
+		src: $src;
 		text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+		text-transform: none;
 	}
 }

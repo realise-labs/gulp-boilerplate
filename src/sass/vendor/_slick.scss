@@ -1,32 +1,32 @@
 /* Slider */
 .slick-slider
 {
-    position: relative;
+    box-sizing: border-box;
 
     display: block;
-    box-sizing: border-box;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+
+    -webkit-touch-callout: none;
 
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
-            user-select: none;
-
-    -webkit-touch-callout: none;
     -khtml-user-select: none;
-    -ms-touch-action: pan-y;
-        touch-action: pan-y;
-    -webkit-tap-highlight-color: transparent;
+            user-select: none;
 }
 
 .slick-list
 {
-    position: relative;
 
     display: block;
-    overflow: hidden;
 
     margin: 0;
+    overflow: hidden;
     padding: 0;
+    position: relative;
 }
 .slick-list:focus
 {
@@ -50,18 +50,18 @@
 
 .slick-track
 {
-    position: relative;
-    top: 0;
-    left: 0;
 
     display: block;
+    left: 0;
+    position: relative;
+    top: 0;
 }
 .slick-track:before,
 .slick-track:after
 {
-    display: table;
 
     content: '';
+    display: table;
 }
 .slick-track:after
 {
@@ -106,11 +106,11 @@
 }
 .slick-vertical .slick-slide
 {
+
+    border: 1px solid transparent;
     display: block;
 
     height: auto;
-
-    border: 1px solid transparent;
 }
 .slick-arrow.slick-hidden {
     display: none;
