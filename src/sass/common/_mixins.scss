@@ -1,0 +1,77 @@
+//**********************************************
+// MIXINS
+// This is a standardised set of mixins, please do not
+// change any of them as they should be constant between
+// builds.
+// However please feel free to extend this file and
+// add your own.
+//**********************************************/
+
+// font sizes declared after CSS reset has been applied
+@mixin font-size($sizeValue: 1.6) {
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin transition($type : all, $time : .25s, $easing : ease-in-out) {
+	-webkit-transition: $type $time $easing;
+    -moz-transition: $type $time $easing;
+    -o-transition: $type $time $easing;
+    transition: $type $time $easing;
+}
+
+// Font-face mixin taken from https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+// Note 2 sections - you only need to call the font-face mixin in your scss
+
+// String Replace
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// Font Face
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		-webkit-font-smoothing: antialiased;
+		font-style: $style;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: $weight;
+		font-weight: normal;
+		speak: none;
+		src: $src;
+		text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+		text-transform: none;
+	}
+}
