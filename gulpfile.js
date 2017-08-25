@@ -1,4 +1,9 @@
 var gulp = require('gulp'),
+	buffer = require('vinyl-buffer'),
+	source = require('vinyl-source-stream'),
+	babelify = require('babelify'),
+	browserify = require('browserify'),
+	uglify = require('gulp-uglify'),
 	sass = require('gulp-sass'),
 	rename = require('gulp-rename'),
 	sourcemaps = require('gulp-sourcemaps'),
@@ -15,10 +20,12 @@ var gulp = require('gulp'),
 var settings = {
 	paths: {
 		input: {
+			scripts: 'src/scripts/',
 			styles: 'src/sass/**/*.scss'
 		},
 
 		output: {
+			scripts: 'dist/scripts',
 			styles: 'dist/css'
 		}
 	}
@@ -34,7 +41,7 @@ gulp.task('scss-lint', function() {
 		.pipe(postcss([
 			stylelint(),
 			reporter({ clearReportedMessages: true, throwError: true, noIcon: false, plugins: ['stylelint'] })
-        ], { syntax: syntax_scss }))
+        ], { syntax: syntax_scss }));
 });
 
 gulp.task('scss-tidy', function() {
@@ -42,10 +49,8 @@ gulp.task('scss-tidy', function() {
 		.pipe(postcss([
 			postcsssorting({ "properties-order": "alphabetical" })
 		], { syntax: syntax_scss }))
-		.pipe(gulp.dest('src/sass'))
+		.pipe(gulp.dest('src/sass'));
 });
-
-
 
 gulp.task('sass-develop', ['scss-tidy', 'scss-lint'], function() {
 	return gulp.src(settings.paths.input.styles)
@@ -64,16 +69,36 @@ gulp.task('sass-build', ['scss-tidy', 'scss-lint'], function() {
 			reporter({ clearMessages: true, throwError: true, noIcon: false })
 		]))
 		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest(settings.paths.output.styles))
+		.pipe(gulp.dest(settings.paths.output.styles));
 });
 
+gulp.task('babelify-develop', function() {
+	return browserify(settings.paths.input.scripts + 'main.js', { debug: true })
+		.transform(babelify, { presets: ['es2015', 'react'], compact: false })
+		.bundle()
+		.on('error', function (err) { console.error(err); })
+		.pipe(source('main.js'))
+		.pipe(buffer())
+		.pipe(gulp.dest(settings.paths.output.scripts));
+});
+
+gulp.task('babelify-build', function() {
+	return browserify(settings.paths.input.scripts + 'main.js', { debug: false })
+		.transform(babelify, { presets: ['es2015', 'react'], compact: false })
+		.bundle()
+		.on('error', function (err) { console.error(err); })
+		.pipe(source('main.min.js'))
+		.pipe(buffer())
+		.pipe(uglify())
+		.pipe(gulp.dest(settings.paths.output.scripts));
+});
 
 gulp.task('develop', function(callback) {
-	sequence('sass-develop');
+	sequence('sass-develop', 'babelify-develop', callback);
 });
 
 gulp.task('build', function(callback) {
-	sequence('sass-build');
+	sequence('sass-build', 'babelify-build', callback);
 });
 
 gulp.task('default', ['develop']);
