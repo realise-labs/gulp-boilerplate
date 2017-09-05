@@ -1,0 +1,14 @@
+{
+	"paths": {
+		"input": {
+			"scripts": "src/scripts/",
+			"styles": "src/sass/**/*.scss"
+		},
+
+		"output": {
+			"scripts": "dist/scripts",
+			"styles": "dist/css"
+		}
+	},
+	"tasksPath":"./gulp-tasks"
+}
