@@ -1,0 +1,37 @@
+{
+	"paths": {
+		"input": {
+			"scripts": "src/scripts/",
+			"styles": "src/sass/**/*.scss"
+		},
+
+		"output": {
+			"devRoot": "./dist",
+			"scripts": "dist/scripts",
+			"styles": "dist/css"
+		}
+	},
+	"browserSync": {
+		"useProxy": false,
+		"proxyUrl": "localhost:8088/pantheon"
+	},
+	"sprite": {
+		"mode": {
+			"css": {
+				"dest": "./",
+				"sprite": "dist/img/sprites/sprites.svg",
+				"bust": false,
+				"render": {
+					"scss": {
+						"dest": "./src/sass/common/_spritesheet.scss",
+						"template": "./src/sass/vendor/_sprite-template.scss"
+					}
+				}
+			}
+		},
+		"variables": {
+			"mapname": "icons"
+		}
+	},
+	"tasksPath":"./gulp-tasks"
+}
