@@ -1,79 +1,30 @@
-var gulp = require('gulp'),
-	sass = require('gulp-sass'),
-	rename = require('gulp-rename'),
-	sourcemaps = require('gulp-sourcemaps'),
-	postcss = require('gulp-postcss'),
-	sequence = require('run-sequence'),
-	// postcss plugins
-	autoprefixer = require('autoprefixer'),
-	reporter = require('postcss-reporter'),
-	stylelint = require('stylelint'),
-	cssnano = require('cssnano'),
-	postcsssorting = require('postcss-sorting'),
-	syntax_scss = require('postcss-scss');
-
-var settings = {
-	paths: {
-		input: {
-			styles: 'src/sass/**/*.scss'
-		},
-
-		output: {
-			styles: 'dist/css'
-		}
-	}
-};
-
-// configs
-var nanoConfig = { safe: false, autoprefixer: false };
-var autoprefixerConfig = { browsers: ['> 1%', 'last 3 versions', 'Android >= 4', 'iOS >= 7'] };
-
-
-gulp.task('scss-lint', function() {
-	return gulp.src([settings.paths.input.styles, '!src/sass/main.scss', '!src/sass/components/_components.scss', '!src/sass/common/_base.scss', '!src/sass/common/_mixins.scss', '!src/sass/vendor/**/*.scss'])
-		.pipe(postcss([
-			stylelint(),
-			reporter({ clearReportedMessages: true, throwError: true, noIcon: false, plugins: ['stylelint'] })
-        ], { syntax: syntax_scss }))
-});
-
-gulp.task('scss-tidy', function() {
-	return gulp.src(settings.paths.input.styles)
-		.pipe(postcss([
-			postcsssorting({ "properties-order": "alphabetical" })
-		], { syntax: syntax_scss }))
-		.pipe(gulp.dest('src/sass'))
+var gulp = require('gulp');
+var config = require('./config.json');
+var plugins = require('gulp-load-plugins')({
+        pattern: '*',
 });
 
 
+// Scss
+require('./gulp-tasks/scss-lint')(gulp, plugins, config);
+require('./gulp-tasks/scss-tidy')(gulp, plugins, config);
 
-gulp.task('sass-develop', ['scss-tidy', 'scss-lint'], function() {
-	return gulp.src(settings.paths.input.styles)
-		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest(settings.paths.output.styles));
-});
+require('./gulp-tasks/sass-develop')(gulp, plugins, config);
+require('./gulp-tasks/sass-build')(gulp, plugins, config);
 
-gulp.task('sass-build', ['scss-tidy', 'scss-lint'], function() {
-	return gulp.src(settings.paths.input.styles)
-		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
-		.pipe(sourcemaps.write())
-		.pipe(postcss([
-			cssnano,
-			autoprefixer({browsers: ['> 1%'], cascade: false}),
-			reporter({ clearMessages: true, throwError: true, noIcon: false })
-		]))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(gulp.dest(settings.paths.output.styles))
-});
+//JS
+require('./gulp-tasks/babelify-develop')(gulp, plugins, config);
+require('./gulp-tasks/babelify-build')(gulp, plugins, config);
 
+//browsersync
+require('./gulp-tasks/browser-sync')(gulp, plugins, config);
 
 gulp.task('develop', function(callback) {
-	sequence('sass-develop');
+	plugins.runSequence('sass-develop', 'babelify-develop', 'browser-sync', callback);
 });
 
 gulp.task('build', function(callback) {
-	sequence('sass-build');
+	plugins.runSequence('sass-build', 'babelify-build', callback);
 });
 
 gulp.task('default', ['develop']);
