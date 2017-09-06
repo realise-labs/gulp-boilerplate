@@ -1,0 +1,19 @@
+{
+	"paths": {
+		"input": {
+			"scripts": "src/scripts/",
+			"styles": "src/sass/**/*.scss"
+		},
+
+		"output": {
+			"devRoot": "./dist",
+			"scripts": "dist/scripts",
+			"styles": "dist/css"
+		}
+	},
+	"browserSync": {
+		"useProxy": false,
+		"proxyUrl": "localhost:8088/pantheon"
+	},
+	"tasksPath":"./gulp-tasks"
+}
