@@ -6,9 +6,14 @@
 		},
 
 		"output": {
+			"devRoot": "./dist",
 			"scripts": "dist/scripts",
 			"styles": "dist/css"
 		}
+	},
+	"browserSync": {
+		"useProxy": false,
+		"proxyUrl": "localhost:8088/pantheon"
 	},
 	"tasksPath":"./gulp-tasks"
 }

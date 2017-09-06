@@ -16,8 +16,11 @@ require('./gulp-tasks/sass-build')(gulp, plugins, config);
 require('./gulp-tasks/babelify-develop')(gulp, plugins, config);
 require('./gulp-tasks/babelify-build')(gulp, plugins, config);
 
+//browsersync
+require('./gulp-tasks/browser-sync')(gulp, plugins, config);
+
 gulp.task('develop', function(callback) {
-	plugins.runSequence('sass-develop', 'babelify-develop', callback);
+	plugins.runSequence('sass-develop', 'babelify-develop', 'browser-sync', callback);
 });
 
 gulp.task('build', function(callback) {
