@@ -1,0 +1,32 @@
+@import '../common/_spritesheet';
+
+$sprite: map-get($icons, sprite) !default;
+$baseFontSize: 16px !default;
+
+// Gets an attribute from the sass map
+@function sprite-attr($icon, $attr) {
+	$newIcon: map-get($icons, $icon);
+	@if $newIcon == null {
+		@warn "Can't find an icon with the name #{$icon}";
+	}
+	@return map-get($newIcon, $attr);
+}
+
+@function icon-attr($icon) {
+	$attr: (
+		width: sprite-attr($icon, width),
+		height: sprite-attr($icon, height),
+		x: sprite-attr($icon, backgroundX),
+		y: sprite-attr($icon, backgroundY)
+	);
+
+	@return $attr;
+}
+
+// Sets background image
+%sprite {
+	background-image: url(map-get($sprite, pngPath));
+	background-image: url(map-get($sprite, svgPath));
+	background-size: map-get($sprite, width) map-get($sprite, height);
+	display: inline-block;
+}
