@@ -4,6 +4,9 @@ var plugins = require('gulp-load-plugins')({
         pattern: '*',
 });
 
+//copy
+require('./gulp-tasks/copy-dev')(gulp, plugins, config);
+require('./gulp-tasks/copy-build')(gulp, plugins, config);
 
 // Scss
 require('./gulp-tasks/scss-lint')(gulp, plugins, config);
@@ -20,11 +23,12 @@ require('./gulp-tasks/babelify-build')(gulp, plugins, config);
 require('./gulp-tasks/browser-sync')(gulp, plugins, config);
 
 gulp.task('develop', function(callback) {
-	plugins.runSequence('sass-develop', 'babelify-develop', 'browser-sync', callback);
+	config.browserSync.useProxy = true;
+	plugins.runSequence('copy-dev', 'sass-develop', 'babelify-develop', 'browser-sync', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('sass-build', 'babelify-build', callback);
+	plugins.runSequence('copy-build','sass-build', 'babelify-build', callback);
 });
 
 gulp.task('default', ['develop']);
