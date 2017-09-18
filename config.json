@@ -16,6 +16,15 @@
 		"useProxy": false,
 		"proxyUrl": "localhost:8088/pantheon"
 	},
+	"lintedFiles": [
+		"src/sass/**/*.scss",
+		"!src/sass/main.scss",
+		"!src/sass/common/_spritesheet.scss",
+		"!src/sass/components/_components.scss",
+		"!src/sass/common/_base.scss",
+		"!src/sass/common/_mixins.scss",
+		"!src/sass/vendor/**/*.scss"
+	],
 	"sprite": {
 		"mode": {
 			"css": {
