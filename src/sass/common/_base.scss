@@ -8,8 +8,10 @@
 // DEPENDENCIES!
 //**********************************************/
 
+@import '_functions.scss';
 @import '_reset';
 @import '_mixins.scss';
+@import '_sprites';
 @import '_fontface.scss'; // Font face declarations
 @import '_fonts';
 @import '_keyframes.scss';

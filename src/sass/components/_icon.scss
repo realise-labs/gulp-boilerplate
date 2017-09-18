@@ -1,0 +1,8 @@
+// automatically builds icons from spritesheet file names
+@each $name, $css in $icons {
+	@if $name != "sprite" {
+		.icon-#{$name} {
+			@include sprite($name);
+		}
+	}
+}
