@@ -2,7 +2,8 @@
 	"paths": {
 		"input": {
 			"scripts": "src/scripts/",
-			"styles": "src/sass/**/*.scss"
+			"styles": "src/sass/**/*.scss",
+			"stylesFolder": "src/sass"
 		},
 
 		"output": {
