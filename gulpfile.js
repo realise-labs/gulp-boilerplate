@@ -4,6 +4,9 @@ var plugins = require('gulp-load-plugins')({
         pattern: '*',
 });
 
+//Clean
+require('./gulp-tasks/clean')(gulp, plugins, config);
+
 // Copy
 require('./gulp-tasks/copy-dev')(gulp, plugins, config);
 require('./gulp-tasks/copy-build')(gulp, plugins, config);
