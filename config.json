@@ -1,8 +1,11 @@
 {
 	"paths": {
 		"input": {
+			"root": "src",
 			"scripts": "src/scripts/",
-			"styles": "src/sass/**/*.scss"
+			"styles": "src/sass/**/*.scss",
+			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/sass/**/*"],
+			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"]
 		},
 
 		"output": {
