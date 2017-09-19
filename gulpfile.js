@@ -4,6 +4,12 @@ var plugins = require('gulp-load-plugins')({
 	pattern: '*'
 });
 
+//Clean
+require('./gulp-tasks/clean')(gulp, plugins, config);
+
+// Copy
+require('./gulp-tasks/copy-dev')(gulp, plugins, config);
+require('./gulp-tasks/copy-build')(gulp, plugins, config);
 
 // Scss
 require('./gulp-tasks/scss-lint')(gulp, plugins, config);
@@ -31,11 +37,12 @@ require('./gulp-tasks/sprite-create')(gulp, plugins, config);
 require('./gulp-tasks/browser-sync')(gulp, plugins, config);
 
 gulp.task('develop', function(callback) {
-	plugins.runSequence(['sass-develop', 'babelify-develop', 'html-templating-develop'], 'browser-sync', callback);
+	plugins.runSequence('copy-dev', 'sprite-create', 'svg2png', 'svgo-sprite', ['sass-develop', 'babelify-develop', 'html-templating-develop'], 'browser-sync', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('sprite-create', 'svg2png', 'svgo-sprite', ['sass-build', 'babelify-build', 'html-templating-build'], callback);
+	plugins.runSequence('copy-build', 'sprite-create', 'svg2png', 'svgo-sprite', ['sass-build', 'babelify-build', 'html-templating-build'], callback);
 });
+
 
 gulp.task('default', ['develop']);
