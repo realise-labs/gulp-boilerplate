@@ -5,8 +5,10 @@
 			"scripts": "src/scripts/",
 			"styles": "src/sass/**/*.scss",
 			"stylesFolder": "src/sass",
+			"html": ["src/**/*.html", "!src/includes/**/*.html"],
 			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/sass/**/*"],
 			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"]
+
 		},
 
 		"output": {
