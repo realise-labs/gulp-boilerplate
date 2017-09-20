@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var config = require('./config.json');
 var plugins = require('gulp-load-plugins')({
 	pattern: '*'
@@ -27,6 +28,9 @@ require('./gulp-tasks/babelify-build')(gulp, plugins, config);
 require('./gulp-tasks/html-templating-develop')(gulp, plugins, config);
 require('./gulp-tasks/html-templating-build')(gulp, plugins, config);
 
+// HTML standards
+require('./gulp-tasks/html-lint')(gulp, plugins, config, gutil);
+
 // SVG spritesheets
 require('./gulp-tasks/svg2png')(gulp, plugins, config);
 require('./gulp-tasks/svgo-sprite')(gulp, plugins, config);
@@ -36,16 +40,12 @@ require('./gulp-tasks/sprite-create')(gulp, plugins, config);
 //browsersync
 require('./gulp-tasks/browser-sync')(gulp, plugins, config);
 
-gulp.task('sass', function(callback) {
-	plugins.runSequence('sprite-create', ['svg2png', 'svgo-sprite', 'sass-develop']);
-});
-
 gulp.task('develop', function(callback) {
-	plugins.runSequence('copy-dev', ['sass', 'babelify-develop', 'html-templating-develop'], 'browser-sync', callback);
+	plugins.runSequence('copy-dev', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-develop', 'babelify-develop', 'html-templating-develop'], 'html-lint', 'browser-sync', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('copy-build', 'sprite-create', 'svg2png', 'svgo-sprite', ['sass-build', 'babelify-build', 'html-templating-build'], callback);
+	plugins.runSequence('copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-build', 'babelify-build', 'html-templating-build'], callback);
 });
 
 

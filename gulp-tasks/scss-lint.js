@@ -13,7 +13,8 @@ module.exports = function(gulp, plugins, config) {
 		return gulp.src(lintedFiles)
 			.pipe(plugins.postcss([
 				plugins.stylelint(),
-				plugins.postcssReporter({ clearReportedMessages: true, throwError: true, noIcon: false, plugins: ['stylelint'] })
+				plugins.postcssReporter({ clearReportedMessages: true })
+				// plugins.postcssReporter({ clearReportedMessages: true, throwError: true, noIcon: false, plugins: ['stylelint'] })
 	        ], { syntax: plugins.postcssScss }));
 	});
 };

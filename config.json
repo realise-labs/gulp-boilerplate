@@ -14,7 +14,8 @@
 		"output": {
 			"devRoot": "./dist",
 			"scripts": "dist/scripts",
-			"styles": "dist/css"
+			"styles": "dist/css",
+			"html": "dist/**/*.html"
 		}
 	},
 	"browserSync": {
