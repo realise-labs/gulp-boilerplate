@@ -5,13 +5,13 @@
 			"scripts": "src/scripts/",
 			"styles": "src/sass/**/*.scss",
 			"html": ["src/**/*.html", "!src/includes/**/*.html"],
+			"images": "src/images/**/*",
 			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/sass/**/*"],
 			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"]
-
 		},
-
 		"output": {
 			"devRoot": "./dist",
+			"images": "dist/images",
 			"scripts": "dist/scripts",
 			"styles": "dist/css"
 		}
