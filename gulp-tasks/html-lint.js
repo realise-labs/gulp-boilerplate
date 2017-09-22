@@ -1,4 +1,5 @@
 module.exports = function(gulp, plugins, config, gutil) {
+	var reload = plugins.browserSync.reload;
 	gulp.task('html-lint', function() {
 	    return gulp.src('dist/index.html')
 	        .pipe(plugins.htmllint({
@@ -11,8 +12,10 @@ module.exports = function(gulp, plugins, config, gutil) {
 	        		'id-class-style' : 'dash',
 	        		'img-req-alt' : 'allownull',
 	        		'input-req-label' : true
-	        	}
-	        }, htmllintReporter));
+	        	},
+	        	"failOnError" : true
+	        }, htmllintReporter))
+	        .pipe(reload({ stream: true}));
 	});
 
 	function htmllintReporter(filepath, issues) {
@@ -21,7 +24,7 @@ module.exports = function(gulp, plugins, config, gutil) {
 	            gutil.log(gutil.colors.cyan('[gulp-htmllint] ') + gutil.colors.white(filepath + ' [' + issue.line + ',' + issue.column + ']: ') + gutil.colors.red('(' + issue.code + ') ' + issue.msg));
 	        });
 
-	        process.exitCode = 1;
+	        //process.exitCode = 1;
 	    }
 	}
 };

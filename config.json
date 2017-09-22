@@ -3,18 +3,20 @@
 		"input": {
 			"root": "src",
 			"scripts": "src/scripts/",
-			"styles": "src/sass/**/*.scss",
-			"stylesFolder": "src/sass",
+			"styles": "src/styles/**/*.scss",
+			"stylesFolder": "src/styles",
+			"spriteSrc": "src/img/sprite-src",
 			"html": ["src/**/*.html", "!src/includes/**/*.html"],
-			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/sass/**/*"],
-			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"]
-
+			"images": "src/images/**/*",
+			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*"],
+			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"],
+			"img": ["src/scripts/"]
 		},
-
 		"output": {
 			"devRoot": "./dist",
+			"images": "dist/images",
 			"scripts": "dist/scripts",
-			"styles": "dist/css",
+			"styles": "dist/styles",
 			"html": "dist/**/*.html"
 		}
 	},
@@ -23,13 +25,13 @@
 		"proxyUrl": "localhost:8088/pantheon"
 	},
 	"lintedFiles": [
-		"src/sass/**/*.scss",
-		"!src/sass/main.scss",
-		"!src/sass/common/_spritesheet.scss",
-		"!src/sass/components/_components.scss",
-		"!src/sass/common/_base.scss",
-		"!src/sass/common/_mixins.scss",
-		"!src/sass/vendor/**/*.scss"
+		"src/styles/**/*.scss",
+		"!src/styles/main.scss",
+		"!src/styles/common/_spritesheet.scss",
+		"!src/styles/components/_components.scss",
+		"!src/styles/common/_base.scss",
+		"!src/styles/common/_mixins.scss",
+		"!src/styles/vendor/**/*.scss"
 	],
 	"sprite": {
 		"mode": {
@@ -39,8 +41,8 @@
 				"bust": false,
 				"render": {
 					"scss": {
-						"dest": "./src/sass/common/_spritesheet.scss",
-						"template": "./src/sass/vendor/_sprite-template.scss"
+						"dest": "./src/styles/common/_spritesheet.scss",
+						"template": "./src/styles/vendor/_sprite-template.scss"
 					}
 				}
 			}

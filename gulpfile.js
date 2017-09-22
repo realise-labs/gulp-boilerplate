@@ -23,6 +23,8 @@ require('./gulp-tasks/sass-build')(gulp, plugins, config);
 require('./gulp-tasks/babelify-develop')(gulp, plugins, config);
 require('./gulp-tasks/babelify-build')(gulp, plugins, config);
 
+// Image minification
+require('./gulp-tasks/image-min')(gulp, plugins, config);
 
 // HTML Templating
 require('./gulp-tasks/html-templating-develop')(gulp, plugins, config);
@@ -40,12 +42,23 @@ require('./gulp-tasks/sprite-create')(gulp, plugins, config);
 //browsersync
 require('./gulp-tasks/browser-sync')(gulp, plugins, config);
 
+//watch for updates rebuild as required
+gulp.task('watch', function() {
+	gulp.watch(config.paths.input.staticDev,  ['copy-dev']);
+	gulp.watch(config.paths.input.styles, ['sass-develop']);
+	gulp.watch(config.paths.input.spriteSrc, ['sprite-create']);
+	gulp.watch(config.paths.input.img + "**/*.svg", ['svg2png']);
+	gulp.watch(config.paths.input.scripts + "**/*.js", ['babelify-develop']);
+	gulp.watch(config.paths.input.html, ['html-templating-develop']);
+	gulp.watch(config.paths.output.html, ['html-lint']);
+});
+
 gulp.task('develop', function(callback) {
-	plugins.runSequence('copy-dev', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-develop', 'babelify-develop', 'html-templating-develop'], 'html-lint', 'browser-sync', callback);
+	plugins.runSequence('copy-dev', 'sprite-create', ['svg2png','svgo-sprite', 'sass-develop', 'babelify-develop', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-build', 'babelify-build', 'html-templating-build'], callback);
+	plugins.runSequence('copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'image-min', 'sass-build', 'babelify-build', 'html-templating-build'], callback);
 });
 
 
