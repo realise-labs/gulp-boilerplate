@@ -4,4 +4,4 @@
 
 import hello from './module';
 
-hello('world');
+hello('James');
