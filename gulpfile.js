@@ -22,6 +22,8 @@ require('./gulp-tasks/sass-build')(gulp, plugins, config);
 require('./gulp-tasks/babelify-develop')(gulp, plugins, config);
 require('./gulp-tasks/babelify-build')(gulp, plugins, config);
 
+// Image minification
+require('./gulp-tasks/image-min')(gulp, plugins, config);
 
 // HTML Templating
 require('./gulp-tasks/html-templating-develop')(gulp, plugins, config);
@@ -51,7 +53,7 @@ gulp.task('develop', function(callback) {
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('copy-build', 'sprite-create', 'svg2png', 'svgo-sprite', ['sass-build', 'babelify-build', 'html-templating-build'], callback);
+	plugins.runSequence('copy-build', 'sprite-create', 'svg2png', 'svgo-sprite', ['image-min', 'sass-build', 'babelify-build', 'html-templating-build'], callback);
 });
 
 

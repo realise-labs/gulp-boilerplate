@@ -6,14 +6,14 @@
 			"styles": "src/sass/**/*.scss",
 			"spriteSrc": "src/img/sprite-src",
 			"html": ["src/**/*.html", "!src/includes/**/*.html"],
+			"images": "src/images/**/*",
 			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/sass/**/*"],
 			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"],
 			"img": ["src/scripts/"]
-
 		},
-
 		"output": {
 			"devRoot": "./dist",
+			"images": "dist/images",
 			"scripts": "dist/scripts",
 			"styles": "dist/css"
 		}
