@@ -1,5 +1,4 @@
 module.exports = function(gulp, plugins, config) {
-
 	gulp.task('clean', function() {
 		//clean all files
 		return gulp

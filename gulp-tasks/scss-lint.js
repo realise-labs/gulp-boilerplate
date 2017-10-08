@@ -4,6 +4,6 @@ module.exports = function(gulp, plugins, config) {
 			.pipe(plugins.postcss([
 				plugins.stylelint(),
 				plugins.postcssReporter({ clearReportedMessages: true, throwError: true, noIcon: false, plugins: ['stylelint'] })
-	        ], { syntax: plugins.postcssScss }));
+			], { syntax: plugins.postcssScss }));
 	});
 };
