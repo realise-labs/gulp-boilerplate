@@ -1,5 +1,4 @@
 module.exports = function(gulp, plugins, config) {
-
 	gulp.task('babelify-develop', function() {
 		var args = plugins.watchify.args;
 		args.debug = true;
@@ -12,5 +11,4 @@ module.exports = function(gulp, plugins, config) {
 			.pipe(plugins.vinylBuffer())
 			.pipe(gulp.dest(config.paths.output.scripts));
 	});
-
 };

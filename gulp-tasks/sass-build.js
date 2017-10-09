@@ -1,5 +1,4 @@
 module.exports = function(gulp, plugins, config) {
-
 	gulp.task('sass-build', ['scss-tidy', 'scss-lint'], function() {
 		return gulp.src(config.paths.input.styles)
 			.pipe(plugins.sourcemaps.init())
