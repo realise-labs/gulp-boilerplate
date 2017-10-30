@@ -9,30 +9,28 @@
 
 // For use with the gulp sprite plugin
 @mixin sprite($icon, $type: all) {
-
-		&::before {
-		    @if $type == all {
-		        // Shares the backgrounds
-		        @extend %sprite;
-		    }
-
-		    $iconMap: icon-attr($icon);
-
-		    // Outputs dimensions in em
-		    @if $type == all or $type == size {
-		        height: map-get($iconMap, height) + 1;
-		        width: map-get($iconMap, width) + 1;
-		    }
-
-		    // Outputs background position in em
-		    @if $type == all or $type == bg {
-		        background-position: map-get($iconMap, x) map-get($iconMap, y);
-		    }
-
-		    background-repeat: no-repeat;
-			content: '';
+	&::before {
+		@if $type == all {
+			// Shares the backgrounds
+			@extend %sprite;
 		}
 
+		$iconMap: icon-attr($icon);
+
+		// Outputs dimensions in em
+		@if $type == all or $type == size {
+			height: map-get($iconMap, height) + 1;
+			width: map-get($iconMap, width) + 1;
+		}
+
+		// Outputs background position in em
+		@if $type == all or $type == bg {
+			background-position: map-get($iconMap, x) map-get($iconMap, y);
+		}
+
+		background-repeat: no-repeat;
+		content: '';
+	}
 }
 
 // font sizes declared after CSS reset has been applied
@@ -50,9 +48,9 @@
 
 @mixin transition($type : all, $time : .25s, $easing : ease-in-out) {
 	-webkit-transition: $type $time $easing;
-    -moz-transition: $type $time $easing;
-    -o-transition: $type $time $easing;
-    transition: $type $time $easing;
+	-moz-transition: $type $time $easing;
+	-o-transition: $type $time $easing;
+	transition: $type $time $easing;
 }
 
 // Font-face mixin taken from https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
