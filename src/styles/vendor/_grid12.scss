@@ -66,22 +66,22 @@
     display: table-cell !important;
   }
 }
-@media (min-width: 768px) and (max-width: $breakpoint-md - 1) {
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1) {
   .visible-sm-block {
     display: block !important;
   }
 }
-@media (min-width: 768px) and (max-width: $breakpoint-md - 1) {
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1) {
   .visible-sm-inline {
     display: inline !important;
   }
 }
-@media (min-width: 768px) and (max-width: $breakpoint-md - 1) {
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1) {
   .visible-sm-inline-block {
     display: inline-block !important;
   }
 }
-@media (min-width: 992px) and (max-width: $breakpoint-lg - 1) {
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
   .visible-md {
     display: block !important;
   }
@@ -96,22 +96,22 @@
     display: table-cell !important;
   }
 }
-@media (min-width: 992px) and (max-width: $breakpoint-lg - 1) {
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
   .visible-md-block {
     display: block !important;
   }
 }
-@media (min-width: 992px) and (max-width: $breakpoint-lg - 1) {
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
   .visible-md-inline {
     display: inline !important;
   }
 }
-@media (min-width: 992px) and (max-width: $breakpoint-lg - 1) {
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
   .visible-md-inline-block {
     display: inline-block !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-lg) {
   .visible-lg {
     display: block !important;
   }
@@ -126,37 +126,37 @@
     display: table-cell !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-lg) {
   .visible-lg-block {
     display: block !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-lg) {
   .visible-lg-inline {
     display: inline !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-lg) {
   .visible-lg-inline-block {
     display: inline-block !important;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: $breakpoint-sm - 1) {
   .hidden-xs {
     display: none !important;
   }
 }
-@media (min-width: 768px) and (max-width: $breakpoint-md - 1) {
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md - 1) {
   .hidden-sm {
     display: none !important;
   }
 }
-@media (min-width: 992px) and (max-width: $breakpoint-lg - 1) {
+@media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg - 1) {
   .hidden-md {
     display: none !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-lg) {
   .hidden-lg {
     display: none !important;
   }
