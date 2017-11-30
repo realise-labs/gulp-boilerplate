@@ -9,8 +9,8 @@
 			"html": ["src/**/*.html", "!src/includes/**/*.html"],
 			"templates": ["src/**/*.html", "src/data/**/*"],
 			"images": "src/images/**/*",
-			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*"],
-			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*"],
+			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/data/**/*"],
+			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*", "!src/data/**/*"],
 			"img": ["src/scripts/"]
 		},
 		"output": {
