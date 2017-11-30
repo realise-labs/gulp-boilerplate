@@ -22,7 +22,7 @@
 	},
 	"browserSync": {
 		"useProxy": false,
-		"proxyUrl": "localhost:8088/pantheon"
+		"proxyUrl": "localhost:8088/"
 	},
 	"lintedFiles": [
 		"src/styles/**/*.scss",
