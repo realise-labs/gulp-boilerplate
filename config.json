@@ -5,7 +5,7 @@
 			"scripts": "src/scripts/",
 			"styles": "src/styles/**/*.scss",
 			"stylesFolder": "src/styles",
-			"spriteSrc": "src/img/sprite-src",
+			"spriteSrc": "src/images/sprite-src",
 			"html": ["src/**/*.html", "!src/includes/**/*.html"],
 			"images": "src/images/**/*",
 			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*"],
@@ -37,7 +37,7 @@
 		"mode": {
 			"css": {
 				"dest": "./",
-				"sprite": "dist/img/sprites/sprites.svg",
+				"sprite": "dist/images/sprites/sprites.svg",
 				"bust": false,
 				"render": {
 					"scss": {
