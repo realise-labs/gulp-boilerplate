@@ -23,4 +23,9 @@ module.exports = function(gulp, plugins, config) {
 			});
 		}
 	});
+
+	gulp.task('browser-reload', function() {
+		//watch files
+		plugins.browserSync.reload();
+	});
 };
