@@ -1,6 +1,7 @@
 module.exports = function(gulp, plugins, config) {
 	gulp.task('babelify-build', function() {
-		return plugins.browserify(config.paths.input.scripts + 'main.js', { debug: false })
+		config.bundles.forEach((bundle) => {
+			plugins.browserify(config.paths.input.scripts + bundle + '.js', { debug: false })
 			.transform(plugins.babelify, { presets: ['es2015'], compact: false })
 			.bundle()
 			.on('error', function (err) {
@@ -13,9 +14,10 @@ module.exports = function(gulp, plugins, config) {
 				console.log(err.codeFrame);
 				console.log();
 			})
-			.pipe(plugins.vinylSourceStream('main.min.js'))
+				.pipe(plugins.vinylSourceStream(bundle + '.min.js'))
 			.pipe(plugins.vinylBuffer())
 			.pipe(plugins.uglify())
 			.pipe(gulp.dest(config.paths.output.scripts));
+		});
 	});
 };
