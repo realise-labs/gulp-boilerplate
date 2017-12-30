@@ -4,7 +4,6 @@ module.exports = function(gulp, plugins, config) {
 		return gulp.src(config.paths.input.styles)
 			.pipe(plugins.postcss([
 				plugins.postcssSorting({ 'properties-order': 'alphabetical' })
-			], { syntax: plugins.postcssScss }))
-			.pipe(gulp.dest('src/sass'));
+			], { syntax: plugins.postcssScss }));
 	});
 };
