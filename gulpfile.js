@@ -14,7 +14,6 @@ require('./gulp-tasks/copy-build')(gulp, plugins, config);
 
 // SCSS
 require('./gulp-tasks/scss-lint')(gulp, plugins, config);
-require('./gulp-tasks/scss-tidy')(gulp, plugins, config);
 
 require('./gulp-tasks/sass-develop')(gulp, plugins, config);
 require('./gulp-tasks/sass-build')(gulp, plugins, config);
