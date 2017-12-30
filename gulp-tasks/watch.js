@@ -5,6 +5,8 @@ module.exports = function(gulp, plugins, config) {
 		gulp.watch(config.paths.input.spriteSrc, ['sprite-create']);
 		gulp.watch(config.paths.input.images + '**/*.svg', ['svg2png']);
 		gulp.watch(config.paths.input.scripts + '**/*.js', ['babelify-develop']);
-		gulp.watch(config.paths.input.templates, ['html-templating-develop']);
+		gulp.watch(config.paths.input.htmlWatch, function () {
+			plugins.runSequence('html-templating-develop', 'browser-reload');
+		});
 	});
 };

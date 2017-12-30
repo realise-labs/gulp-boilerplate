@@ -7,7 +7,7 @@
 			"stylesFolder": "src/styles",
 			"spriteSrc": "src/images/sprite-src",
 			"html": ["src/**/*.html", "!src/includes/**/*.html"],
-			"templates": ["src/**/*.html", "src/data/**/*"],
+			"htmlWatch": ["src/**/*.html"],
 			"images": "src/images/**/*",
 			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/data/**/*"],
 			"staticBuild": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/images/**/*", "!src/data/**/*"],
