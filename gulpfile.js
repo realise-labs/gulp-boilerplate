@@ -44,11 +44,11 @@ require('./gulp-tasks/browser-sync')(gulp, plugins, config);
 require('./gulp-tasks/watch')(gulp, plugins, config);
 
 gulp.task('develop', function(callback) {
-	plugins.runSequence('copy-dev', 'sprite-create', ['svg2png','svgo-sprite', 'sass-develop', 'babelify-develop', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', callback);
+	plugins.runSequence('clean', 'copy-dev', 'sprite-create', ['svg2png','svgo-sprite', 'sass-develop', 'babelify-develop', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'image-min', 'sass-build', 'babelify-build', 'html-templating-build'], callback);
+	plugins.runSequence('clean', 'copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'image-min', 'sass-build', 'babelify-build', 'html-templating-build'], callback);
 });
 
 
