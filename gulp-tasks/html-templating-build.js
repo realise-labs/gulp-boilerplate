@@ -1,6 +1,7 @@
 module.exports = function(gulp, plugins, config) {
 	gulp.task('html-templating-build', function() {
 		return gulp.src(config.paths.input.html)
+			.pipe(plugins.plumber())
 			.pipe(plugins.fileInclude({
 				prefix: '@@',
 				basepath: '@file',

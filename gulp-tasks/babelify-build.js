@@ -14,7 +14,6 @@ module.exports = function(gulp, plugins, config) {
 				console.log(err.codeFrame);
 				console.log();
 			})
-			.pipe(plugins.plumber())
 			.pipe(plugins.vinylSourceStream(bundle + '.min.js'))
 			.pipe(plugins.vinylBuffer())
 			.pipe(plugins.uglify())
