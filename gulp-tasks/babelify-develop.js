@@ -7,7 +7,10 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 			plugins.watchify(plugins.browserify(config.paths.input.scripts + bundle + '.js', args))
 			.transform(plugins.babelify, { presets: ['es2015'], compact: false })
 			.bundle()
-			.on('error', errorHandler)
+			.on('error', function(error) {
+				error.plugin = 'babelify';
+				errorHandler.call(this, error);
+			})
 			.pipe(plugins.vinylSourceStream(bundle + '.js'))
 			.pipe(plugins.vinylBuffer())
 			.pipe(gulp.dest(config.paths.output.scripts));
