@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var config = require('./config.json');
 var plugins = require('gulp-load-plugins')({
 	pattern: '*'
@@ -34,7 +33,7 @@ require('./gulp-tasks/html-templating-develop')(gulp, plugins, config, errorHand
 require('./gulp-tasks/html-templating-build')(gulp, plugins, config, errorHandler);
 
 // HTML standards
-require('./gulp-tasks/html-lint')(gulp, plugins, config, errorHandler, gutil);
+require('./gulp-tasks/html-lint')(gulp, plugins, config, errorHandler);
 
 // SVG spritesheets
 require('./gulp-tasks/svg2png')(gulp, plugins, config, errorHandler);
