@@ -1,7 +1,7 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	gulp.task('sass-build', ['scss-lint'], function() {
 		return gulp.src(config.paths.input.styles)
-			.pipe(plugins.plumber())
+			.pipe(plugins.plumber(errorHandler))
 			.pipe(plugins.sourcemaps.init())
 			.pipe(plugins.sass())
 			.pipe(plugins.sourcemaps.write())

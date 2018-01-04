@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config, gutil) {
+module.exports = function (gulp, plugins, config, errorHandler, gutil) {
 	var reload = plugins.browserSync.reload;
 	gulp.task('html-lint', function() {
 	    return gulp.src('dist/index.html')

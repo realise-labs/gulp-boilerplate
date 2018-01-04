@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	gulp.task('svg2png', function () {
 		gulp.src('./dist/images/sprites/**/*.svg')
 		.pipe(plugins.plumber())

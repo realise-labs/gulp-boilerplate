@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function(gulp, plugins, config, errorHandler) {
 	gulp.task('babelify-build', function() {
 		config.bundles.forEach((bundle) => {
 			plugins.browserify(config.paths.input.scripts + bundle + '.js', { debug: false })
