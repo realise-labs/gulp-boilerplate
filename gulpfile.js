@@ -3,7 +3,7 @@ var config = require('./config.json');
 var plugins = require('gulp-load-plugins')({
 	pattern: '*'
 });
-var errorHandler = require('./gulp-tasks/error');
+var errorHandler = require('./gulp-tasks/error')(plugins);
 
 
 // Clean
