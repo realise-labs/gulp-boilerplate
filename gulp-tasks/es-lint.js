@@ -3,6 +3,10 @@ module.exports = function (gulp, plugins, config, errorHandler) {
         return gulp.src([config.paths.input.scripts + '**/*.js', '!' + config.paths.input.scripts + 'vendor/**/*.js'])
             .pipe(plugins.eslint({
                 'extends': 'eslint:recommended',
+                'parserOptions': {
+                    'ecmaVersion': 6,
+                    'sourceType': 'module'
+                },
                 'rules': {
                     'camelcase': 'warn',
                     'indent': ['warn', 'tab'],
