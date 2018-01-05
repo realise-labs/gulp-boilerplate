@@ -8,8 +8,12 @@ module.exports = function (gulp, plugins, config, errorHandler) {
                     'sourceType': 'module'
                 },
                 'rules': {
+                    // Full list of rules here: https://eslint.org/docs/rules/
                     'camelcase': 'warn',
+                    'curly': 'warn',
+                    'eqeqeq': 'warn',
                     'indent': ['warn', 'tab'],
+                    'no-extra-semi': 'warn',
                     'quotes': ['warn', 'single'],
                     'semi': 'warn'
                 }
