@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	//browser-sync task for starting the server.
 	gulp.task('browser-sync', function() {
 		//watch files

@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	gulp.task('watch', function() {
 		gulp.watch(config.paths.input.staticDev,  ['copy-dev']);
 		gulp.watch(config.paths.input.styles, ['sass-develop']);
