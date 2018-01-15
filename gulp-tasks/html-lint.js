@@ -3,17 +3,19 @@ module.exports = function(gulp, plugins, config, gutil) {
 	gulp.task('html-lint', function() {
 	    return gulp.src('dist/index.html')
 	        .pipe(plugins.htmllint({
-	        	"rules" : {
+	        	'rules' : {
 	        		'doctype-first' : true,
 	        		'line-end-style' : false,
-	        		'attr-name-style' : 'dash',
+					'attr-name-style' : 'dash',
+					'attr-name-ignore-regex': ':',
+					'attr-quote-style': 'double',
 	        		'doctype-html5' : true,
 	        		'html-req-lang' : true,
 	        		'id-class-style' : 'dash',
 	        		'img-req-alt' : 'allownull',
 	        		'input-req-label' : true
 	        	},
-	        	"failOnError" : true
+	        	'failOnError' : true
 	        }, htmllintReporter))
 	        .pipe(reload({ stream: true}));
 	});
