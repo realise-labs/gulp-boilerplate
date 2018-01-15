@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	gulp.task('babelify-develop', function() {
 		var args = plugins.watchify.args;
 		args.debug = true;
@@ -7,15 +7,9 @@ module.exports = function(gulp, plugins, config) {
 			plugins.watchify(plugins.browserify(config.paths.input.scripts + bundle + '.js', args))
 			.transform(plugins.babelify, { presets: ['es2015'], compact: false })
 			.bundle()
-			.on('error', function (err) {
-				console.log();
-				console.log('\x1b[31mJavaScript error!\x1b[0m');
-				console.log(err.message);
-				console.log();
-				console.log(err.filename);
-				console.log('Line ' + err.loc.line + ' Column ' + err.loc.column);
-				console.log(err.codeFrame);
-				console.log();
+			.on('error', function(error) {
+				error.plugin = 'babelify';
+				errorHandler.call(this, error);
 			})
 			.pipe(plugins.vinylSourceStream(bundle + '.js'))
 			.pipe(plugins.vinylBuffer())

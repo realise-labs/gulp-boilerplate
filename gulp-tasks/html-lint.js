@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config, gutil) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	var reload = plugins.browserSync.reload;
 	gulp.task('html-lint', function() {
 	    return gulp.src('dist/index.html')
@@ -23,7 +23,7 @@ module.exports = function(gulp, plugins, config, gutil) {
 	function htmllintReporter(filepath, issues) {
 	    if (issues.length > 0) {
 	        issues.forEach(function (issue) {
-	            gutil.log(gutil.colors.cyan('[gulp-htmllint] ') + gutil.colors.white(filepath + ' [' + issue.line + ',' + issue.column + ']: ') + gutil.colors.red('(' + issue.code + ') ' + issue.msg));
+				plugins.gutil.log(plugins.gutil.colors.cyan('[gulp-htmllint] ') + plugins.gutil.colors.white(filepath + ' [' + issue.line + ',' + issue.column + ']: ') + plugins.gutil.colors.red('(' + issue.code + ') ' + issue.msg));
 	        });
 
 	        //process.exitCode = 1;
