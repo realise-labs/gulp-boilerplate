@@ -13,16 +13,34 @@
 		"sourceType": "module"
 	},
 	"rules": {
+		"arrow-parens": "warn",
+		"arrow-spacing": "warn",
 		"camelcase": "warn",
+		"capitalized-comments": "warn",
+		"comma-style": "warn",
 		"curly": "warn",
+		"dot-notation": "warn",
 		"eqeqeq": "warn",
+		"eol-last": "warn",
+		"id-length": "warn",
 		"indent": ["warn", "tab"],
+		"keyword-spacing": "warn",
+		"new-cap": "warn",
 		"no-alert": "warn",
 		"no-console": "warn",
+		"no-duplicate-imports": "warn",
 		"no-eval": "warn",
 		"no-extra-semi": "warn",
+		"no-multi-spaces": "warn",
 		"no-undef": "warn",
+		"no-var": "warn",
+		"padded-blocks": ["warn", "never"],
+		"prefer-const": "warn",
 		"quotes": ["warn", "single"],
-		"semi": "warn"
+		"semi": "warn",
+		"space-infix-ops": "warn",
+		"spaced-comment": "warn",
+		"space-before-blocks": "warn",
+		"vars-on-top": "warn"
 	}
 }
