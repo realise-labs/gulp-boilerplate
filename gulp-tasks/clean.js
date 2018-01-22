@@ -3,7 +3,6 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 		//clean all files
 		return gulp
 			.src(config.paths.output.devRoot)
-			.pipe(plugins.plumber())
 			.pipe(plugins.clean());
 	});
 };
