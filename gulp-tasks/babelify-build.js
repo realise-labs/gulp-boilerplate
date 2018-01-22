@@ -1,12 +1,17 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function(gulp, plugins, config, errorHandler) {
 	gulp.task('babelify-build', function() {
-		return plugins.browserify(config.paths.input.scripts + 'main.js', { debug: false })
-			.transform(plugins.babelify, { presets: ['es2015', 'react'], compact: false })
+		config.bundles.forEach((bundle) => {
+			plugins.browserify(config.paths.input.scripts + bundle + '.js', { debug: false })
+			.transform(plugins.babelify, { presets: ['es2015'], compact: false })
 			.bundle()
-			.on('error', function (err) { console.error(err); })
-			.pipe(plugins.vinylSourceStream('main.min.js'))
+			.on('error', function (error) {
+				error.plugin = 'babelify';
+				errorHandler.call(this, error);
+			})
+			.pipe(plugins.vinylSourceStream(bundle + '.min.js'))
 			.pipe(plugins.vinylBuffer())
 			.pipe(plugins.uglify())
 			.pipe(gulp.dest(config.paths.output.scripts));
+		});
 	});
 };
