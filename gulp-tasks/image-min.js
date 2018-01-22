@@ -4,7 +4,16 @@ module.exports = function(gulp, plugins, config) {
 			.pipe(plugins.imagemin([
 				plugins.imageminJpegRecompress({
 					quality: 'low'
-				})
+				}),
+				plugins.imageminPngquant({
+                speed: 1,
+                quality: 75 //lossy settings
+            	}),
+				plugins.imageminZopfli({
+                	more: true
+            	}),
+				plugins.imagemin.svgo({plugins: [{removeViewBox: true}]}),
+				plugins.imagemin.gifsicle({interlaced: true})
 			]))
 			.pipe(gulp.dest(config.paths.output.images));
 	});

@@ -1,7 +1,8 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	gulp.task('sass-develop', ['scss-lint'], function() {
 		return gulp.src(config.paths.input.styles)
-			.pipe(plugins.sass().on('error', plugins.sass.logError))
+			.pipe(plugins.plumber(errorHandler))
+			.pipe(plugins.sass())
 			.pipe(gulp.dest(config.paths.output.styles));
 	});
 };

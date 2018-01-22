@@ -25,6 +25,7 @@
 		"useProxy": false,
 		"proxyUrl": "localhost:8088/"
 	},
+	"bundles": ["main"],
 	"lintedFiles": [
 		"src/styles/**/*.scss",
 		"!src/styles/main.scss",

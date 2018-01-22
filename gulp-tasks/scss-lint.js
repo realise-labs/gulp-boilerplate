@@ -1,4 +1,4 @@
-module.exports = function(gulp, plugins, config) {
+module.exports = function (gulp, plugins, config, errorHandler) {
 	gulp.task('scss-lint', function() {
 		return gulp.src(config.lintedFiles)
 			.pipe(plugins.postcss([
