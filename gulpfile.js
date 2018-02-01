@@ -46,13 +46,17 @@ require('./gulp-tasks/browser-sync')(gulp, plugins, config, errorHandler);
 
 // Watch
 require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
+var playSound = require('./gulp-tasks/play-sound');
+gulp.task('complete', function () {
+	playSound(config.sounds.success);
+});
 
 gulp.task('develop', function(callback) {
-	plugins.runSequence('clean', 'copy-dev', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', callback);
+	plugins.runSequence('clean', 'copy-dev', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('clean', 'copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'image-min', 'sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], callback);
+	plugins.runSequence('clean', 'copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'image-min', 'sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'complete', callback);
 });
 
 
