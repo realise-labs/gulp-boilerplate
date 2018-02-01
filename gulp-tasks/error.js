@@ -3,10 +3,10 @@
 
 var playSound = require('./play-sound');
 
-module.exports = function (plugins) {
+module.exports = function (plugins, config) {
 	return function (error) {
-		playSound('error.wav');
-		
+		playSound(config.sounds.error);
+
 		// extract values and apply defaults
 		var plugin = error.plugin || 'unknown';
 		var message = error.message || 'unknown error';
