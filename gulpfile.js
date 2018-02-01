@@ -46,10 +46,9 @@ require('./gulp-tasks/browser-sync')(gulp, plugins, config, errorHandler);
 
 // Watch
 require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
-var playSound = require('./gulp-tasks/play-sound');
-gulp.task('complete', function () {
-	playSound(config.sounds.success);
-});
+
+// Complete
+require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
 
 gulp.task('develop', function(callback) {
 	plugins.runSequence('clean', 'copy-dev', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
