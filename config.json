@@ -26,6 +26,10 @@
 		"proxyUrl": "localhost:8088/"
 	},
 	"bundles": ["main"],
+	"sounds": {
+		"success": "success.mp3",
+		"error": "error.mp3"
+	},
 	"lintedFiles": [
 		"src/styles/**/*.scss",
 		"!src/styles/main.scss",
