@@ -31,11 +31,6 @@
 	},
 	"lintedFiles": [
 		"src/styles/**/*.scss",
-		"!src/styles/main.scss",
-		"!src/styles/common/_spritesheet.scss",
-		"!src/styles/components/_components.scss",
-		"!src/styles/common/_base.scss",
-		"!src/styles/common/_mixins.scss",
 		"!src/styles/vendor/**/*.scss"
 	],
 	"sprite": {
