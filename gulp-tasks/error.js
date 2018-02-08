@@ -1,8 +1,12 @@
 // This code lovingly stolen from gulp-prettyerror
 // https://github.com/AndiDittrich/gulp-prettyerror/blob/master/gulp-prettyerror.js
 
-module.exports = function (plugins) {
+var playSound = require('./play-sound');
+
+module.exports = function (plugins, config) {
 	return function (error) {
+		playSound(config.sounds.error);
+
 		// extract values and apply defaults
 		var plugin = error.plugin || 'unknown';
 		var message = error.message || 'unknown error';
