@@ -6,7 +6,7 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 		gulp.watch(config.paths.input.images + '**/*.svg', ['svg2png']);
 		gulp.watch(config.paths.input.scripts + '**/*.js', ['es-lint', 'babelify-develop']);
 		gulp.watch(config.paths.input.htmlWatch, function () {
-			plugins.runSequence('html-templating-develop', 'browser-reload');
+			plugins.runSequence('html-templating-develop', 'html-lint', 'browser-reload');
 		});
 	});
 };
