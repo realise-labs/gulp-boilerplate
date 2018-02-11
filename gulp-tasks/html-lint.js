@@ -33,11 +33,10 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 	function htmllintReporter(filepath, issues) {
 	    if (issues.length > 0) {
 			console.log();
-			console.log(plugins.util.colors.white(filepath));
+			console.log(plugins.util.colors.underline.white(filepath));
 
 	        issues.forEach(function (issue) {
-				console.log(plugins.util.colors.white(issue.line + ':' + issue.column + '     ' + issue.msg) + plugins.util.colors.yellow(' [htmllint]'));
-				// plugins.util.log(plugins.util.colors.cyan('[gulp-htmllint] ') + plugins.util.colors.white(filepath + ' [' + issue.line + ',' + issue.column + ']: ') + plugins.util.colors.red('(' + issue.code + ') ' + issue.msg));
+				console.log(plugins.util.colors.yellow(issue.line + ':' + issue.column + '     ' + issue.msg));
 			});
 			console.log();
 	    }
