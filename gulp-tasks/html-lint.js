@@ -5,16 +5,25 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 			.pipe(plugins.plumber(errorHandler))
 	        .pipe(plugins.htmllint({
 	        	'rules' : {
-	        		'doctype-first' : true,
-	        		'line-end-style' : false,
-					'attr-name-style' : 'dash',
 					'attr-name-ignore-regex': ':',
+					'attr-name-style' : 'dash',
 					'attr-quote-style': 'double',
+					'attr-no-dup': true,
+					'class-no-dup': true,
+	        		'doctype-first' : true,
 	        		'doctype-html5' : true,
+					'head-req-title': true,
 	        		'html-req-lang' : true,
 	        		'id-class-style' : 'dash',
+					'id-no-dup': true,
 	        		'img-req-alt' : 'allownull',
-	        		'input-req-label' : true
+					'img-req-src': true,
+					'indent-style': 'tabs',
+					'input-req-label' : true,
+	        		'line-end-style' : false,
+					'tag-close': true,
+					'tag-name-lowercase': true,
+					'title-no-dup': true
 	        	},
 	        	'failOnError' : false
 			}, htmllintReporter))
