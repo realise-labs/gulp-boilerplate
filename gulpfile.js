@@ -36,11 +36,6 @@ require('./gulp-tasks/html-templating-build')(gulp, plugins, config, errorHandle
 // HTML standards
 require('./gulp-tasks/html-lint')(gulp, plugins, config, errorHandler);
 
-// SVG spritesheets
-require('./gulp-tasks/svg2png')(gulp, plugins, config, errorHandler);
-require('./gulp-tasks/svgo-sprite')(gulp, plugins, config, errorHandler);
-require('./gulp-tasks/sprite-create')(gulp, plugins, config, errorHandler);
-
 // BrowserSync
 require('./gulp-tasks/browser-sync')(gulp, plugins, config, errorHandler);
 
@@ -51,11 +46,11 @@ require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
 require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
 
 gulp.task('develop', function(callback) {
-	plugins.runSequence('clean', 'copy-dev', 'sprite-create', ['svg2png', 'svgo-sprite', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
+	plugins.runSequence('clean', 'copy-dev', ['sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('clean', 'copy-build', 'sprite-create', ['svg2png', 'svgo-sprite', 'image-min', 'sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'complete', callback);
+	plugins.runSequence('clean', 'copy-build', ['image-min', 'sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'complete', callback);
 });
 
 
