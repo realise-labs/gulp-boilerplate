@@ -5,8 +5,7 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 		var files = [
 			//update this for all theme base file types
 			config.paths.output.styles + '/*.css',
-			config.paths.output.scripts + '/*.js',
-			config.paths.output.html
+			config.paths.output.scripts + '/*.js'
 		];
 
 		if (config.browserSync.useProxy) {
