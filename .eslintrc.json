@@ -16,7 +16,6 @@
 		"arrow-parens": "warn",
 		"arrow-spacing": "warn",
 		"camelcase": "warn",
-		"capitalized-comments": "warn",
 		"comma-style": "warn",
 		"curly": "warn",
 		"dot-notation": "warn",
@@ -39,7 +38,6 @@
 		"quotes": ["warn", "single"],
 		"semi": "warn",
 		"space-infix-ops": "warn",
-		"spaced-comment": "warn",
 		"space-before-blocks": "warn",
 		"vars-on-top": "warn"
 	}
