@@ -2,6 +2,7 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 	var reload = plugins.browserSync.reload;
 	gulp.task('html-lint', function() {
 		return gulp.src(config.paths.output.html)
+			.pipe(plugins.cached('html-lint'))
 			.pipe(plugins.plumber(errorHandler))
 	        .pipe(plugins.htmllint({
 	        	'rules' : {
