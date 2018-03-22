@@ -34,7 +34,6 @@
 		"no-undef": "warn",
 		"no-var": "warn",
 		"padded-blocks": ["warn", "never"],
-		"prefer-const": "warn",
 		"quotes": ["warn", "single"],
 		"semi": "warn",
 		"space-infix-ops": "warn",
