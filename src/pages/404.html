@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Page not found</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="apple-touch-icon" href="icon.png">
+
+		@@if (task === 'build') {<link rel="stylesheet" type="text/css" href="styles/main.min.css" media="screen">}
+		@@if (task !== 'build') {<link rel="stylesheet" type="text/css" href="styles/main.css" media="screen">}
+	</head>
+	<body>
+		<h1>Page not found</h1>
+
+		@@include("../includes/footer.html")
+
+		@@if (task === 'build') {<script src="scripts/main.min.js"></script>}
+		@@if (task !== 'build') {<script src="scripts/main.js"></script>}
+	</body>
+</html>
