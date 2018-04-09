@@ -13,11 +13,11 @@
 	<body>
 		<h1 class="h1">Hello worldddd</h1>
 
-		@@include("./includes/sample.html", {
+		@@include("../includes/sample.html", {
 			"title": "This is a title"
 		})
 
-		@@include("./includes/footer.html")
+		@@include("../includes/footer.html")
 
 		@@if (task === 'build') {<script src="scripts/main.min.js"></script>}
 		@@if (task !== 'build') {<script src="scripts/main.js"></script>}

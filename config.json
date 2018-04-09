@@ -6,7 +6,7 @@
 			"styles": "src/styles/**/*.scss",
 			"stylesFolder": "src/styles",
 			"spriteSrc": "src/images/sprite-src",
-			"html": ["src/**/*.html", "!src/includes/**/*.html"],
+			"html": ["src/pages/**/*.html", "!src/includes/**/*.html"],
 			"htmlWatch": ["src/**/*.html"],
 			"images": "src/images/**/*",
 			"staticDev": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/data/**/*"],
