@@ -3,8 +3,8 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 		var args = plugins.watchify.args;
 		args.debug = true;
 
-		config.bundles.forEach((bundle) => {
-			plugins.watchify(plugins.browserify(config.paths.input.scripts + bundle + '.js', args))
+		var tasks = config.bundles.map((bundle) => {
+			return plugins.watchify(plugins.browserify(config.paths.input.scripts + bundle + '.js', args))
 			.transform(plugins.babelify, { presets: ['es2015'], compact: false })
 			.bundle()
 			.on('error', function(error) {
@@ -15,5 +15,7 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 			.pipe(plugins.vinylBuffer())
 			.pipe(gulp.dest(config.paths.output.scripts));
 		});
+
+		return plugins.eventStream.merge.apply(null, tasks);
 	});
 };
