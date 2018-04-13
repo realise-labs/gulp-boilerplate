@@ -1,4 +1,29 @@
-$icons: (
-	  sprite: (width: {{spriteWidth}}px, height: {{spriteHeight}}px, svgPath: '../img/sprites/sprites.svg', pngPath: '../img/sprites/sprites.png'),
-{{#shapes}} 	{{base}}: (width: {{width.inner}}px, height: {{height.inner}}px, backgroundX: {{position.absolute.x}}px, backgroundY: {{position.absolute.y}}px),
-{{/shapes}});
+//<Generated at {{date}} by svg-sprite
+
+.icon {
+    &:before {
+      content:' ';
+      vertical-align:middle;
+      display: inline-block;
+      background-image: url("/{{{sprite}}}");
+      background-repeat: no-repeat;
+      background-size: {{spriteWidth}}px {{spriteHeight}}px;
+      padding: {{padding.top}}px {{padding.right}}px {{padding.bottom}}px {{padding.left}}px;
+
+      .no-svg & {
+        background-image: url("<%=pngPath%>");
+      }
+    }
+}
+
+{{#shapes}}
+
+.icon.{{name}} {
+  &:before {
+      background-position: {{position.relative.x}}% {{position.relative.y}}%;
+      width: {{width.outer}}px;
+      height: {{height.outer}}px;
+    }
+  }
+
+{{/shapes}}

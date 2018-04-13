@@ -5,7 +5,7 @@
 			"scripts": "src/scripts/",
 			"styles": "src/styles/**/*.scss",
 			"stylesFolder": "src/styles",
-			"spriteSrc": "src/images/sprite-src",
+			"spriteSrc": "src/images/sprite-src/**/*.svg",
 			"html": ["src/pages/**/*.html", "!src/includes/**/*.html"],
 			"htmlWatch": ["src/**/*.html"],
 			"images": "src/images/**/*",
@@ -34,22 +34,11 @@
 		"!src/styles/vendor/**/*.scss"
 	],
 	"sprite": {
-		"mode": {
-			"css": {
-				"dest": "./",
-				"sprite": "dist/images/sprites/sprites.svg",
-				"bust": false,
-				"render": {
-					"scss": {
-						"dest": "./src/styles/common/_spritesheet.scss",
-						"template": "./src/styles/vendor/_sprite-template.scss"
-					}
-				}
-			}
-		},
-		"variables": {
-			"mapname": "icons"
-		}
+		"spritePath":"images/sprite.svg",
+		"dest": "./src",
+		"shapeDest": "dist/images/svg-icons",
+		"scssDest": "styles/generated/_sprite.scss",
+		"scssTemplate": "src/styles/vendor/_sprite-template.scss"
 	},
 	"tasksPath":"./gulp-tasks"
 }
