@@ -6,15 +6,17 @@ module.exports = function(gulp, plugins, config) {
 					quality: 'low'
 				}),
 				plugins.imageminPngquant({
-                speed: 1,
-                quality: 75 //lossy settings
+					speed: 1,
+					quality: 75 //lossy settings
             	}),
 				plugins.imageminZopfli({
                 	more: true
             	}),
 				plugins.imagemin.svgo({plugins: [{removeViewBox: true}]}),
 				plugins.imagemin.gifsicle({interlaced: true})
-			]))
+			], {
+				verbose: true
+			}))
 			.pipe(gulp.dest(config.paths.output.images));
 	});
 };
