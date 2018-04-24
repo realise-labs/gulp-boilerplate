@@ -17,7 +17,8 @@
 			"images": "dist/images",
 			"scripts": "dist/scripts",
 			"styles": "dist/styles",
-			"html": "dist/**/*.html"
+			"html": "dist/**/*.html",
+			"release": "release/"
 		}
 	},
 	"browserSync": {
