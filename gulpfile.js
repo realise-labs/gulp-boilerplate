@@ -50,7 +50,7 @@ gulp.task('develop', function(callback) {
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('clean', 'copy-build', ['image-min', 'sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'complete', callback);
+	plugins.runSequence('clean', 'copy-build', ['sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'complete', callback);
 });
 
 
