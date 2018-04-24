@@ -19,4 +19,9 @@ module.exports = function(gulp, plugins, config) {
 			}))
 			.pipe(gulp.dest(config.paths.output.images));
 	});
+	
+	gulp.task('image-min-reminder', function () {
+		console.log(plugins.util.colors.yellow('NOTE - image minification is no longer part of the build workflow'));
+		console.log(plugins.util.colors.yellow('Run "gulp image-min" instead'));
+	});
 };
