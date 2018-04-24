@@ -13,7 +13,7 @@
 		},
 		"output": {
 			"devRoot": "./dist",
-			"images": "dist/images",
+			"images": "src/images",
 			"scripts": "dist/scripts",
 			"styles": "dist/styles",
 			"html": "dist/**/*.html"
