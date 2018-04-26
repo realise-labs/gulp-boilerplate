@@ -25,6 +25,7 @@
 		"proxyUrl": "localhost:8088/"
 	},
 	"bundles": ["main"],
+	"linting": true,
 	"sounds": {
 		"active": true,
 		"success": "success.mp3",
