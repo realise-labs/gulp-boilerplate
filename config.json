@@ -26,6 +26,7 @@
 	},
 	"bundles": ["main"],
 	"sounds": {
+		"active": true,
 		"success": "success.mp3",
 		"error": "error.mp3"
 	},
