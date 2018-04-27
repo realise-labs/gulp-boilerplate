@@ -16,7 +16,8 @@
 			"images": "src/images",
 			"scripts": "dist/scripts",
 			"styles": "dist/styles",
-			"html": "dist/**/*.html"
+			"html": "dist/**/*.html",
+			"release": "release/"
 		}
 	},
 	"browserSync": {
@@ -24,7 +25,9 @@
 		"proxyUrl": "localhost:8088/"
 	},
 	"bundles": ["main"],
+	"linting": true,
 	"sounds": {
+		"active": true,
 		"success": "success.mp3",
 		"error": "error.mp3"
 	},

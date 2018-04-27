@@ -8,10 +8,12 @@ var errorHandler = require('./gulp-tasks/error')(plugins, config);
 
 // Clean
 require('./gulp-tasks/clean')(gulp, plugins, config, errorHandler);
+require('./gulp-tasks/clean-release')(gulp, plugins, config, errorHandler);
 
 // Copy
 require('./gulp-tasks/copy-dev')(gulp, plugins, config, errorHandler);
 require('./gulp-tasks/copy-build')(gulp, plugins, config, errorHandler);
+require('./gulp-tasks/copy-release')(gulp, plugins, config, errorHandler);
 
 // SCSS
 require('./gulp-tasks/scss-lint')(gulp, plugins, config, errorHandler);
@@ -53,5 +55,8 @@ gulp.task('build', function(callback) {
 	plugins.runSequence('clean', 'copy-build', ['sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'image-min-reminder', 'complete', callback);
 });
 
+gulp.task('release', function(callback) {
+	plugins.runSequence('clean-release', 'copy-release', 'complete', callback);
+});
 
 gulp.task('default', ['develop']);
