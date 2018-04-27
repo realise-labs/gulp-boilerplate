@@ -5,7 +5,9 @@ var playSound = require('./play-sound');
 
 module.exports = function (plugins, config) {
 	return function (error) {
-		playSound(config.sounds.error);
+		if (config.sounds.active === true) {
+			playSound(config.sounds.error);
+		}
 
 		// extract values and apply defaults
 		var plugin = error.plugin || 'unknown';
