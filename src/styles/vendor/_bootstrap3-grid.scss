@@ -5,11 +5,10 @@
  */
 
 // Core variables and mixins
-@import "bootstrap-3/variables";
 @import "bootstrap-3/mixins";
 
 // Core CSS
-@import "bootstrap-3/grid";
+@import "_grid-bs3";
 
 // Utility classes
 @import "bootstrap-3/utilities";

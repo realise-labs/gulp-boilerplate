@@ -7,6 +7,8 @@
 // add your own.
 //**********************************************/
 
+@import "mixins/_breakpoints";
+
 // For use with the gulp sprite plugin
 @mixin sprite($icon, $type: all) {
 	&::before {

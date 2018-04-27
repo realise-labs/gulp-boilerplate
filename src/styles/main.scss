@@ -3,8 +3,10 @@
 
 @import 'common/_base.scss';
 
-//@import 'vendor/_grid12.scss'; // JAmes grid
-//@import 'vendor/_bootstrap3-grid.scss'; // Bootstrap 3 grid and utilities
-@import 'vendor/_bootstrap-grid.scss'; // Bootstrap 3 grid and utilities
+// Bootstrap 3 grid and utilities
+//@import 'vendor/_bootstrap3-grid.scss';
+
+// Bootstrap 4 grid and utilities
+@import 'vendor/_bootstrap4-grid.scss';
 
 @import 'components/_components.scss';

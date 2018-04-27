@@ -7,7 +7,9 @@
 // ALSO DON'T CHANGE THE ORDER - THERE ARE
 // DEPENDENCIES!
 //**********************************************/
-
+@import '_grid';
+@import 'vendor/_grid-bs4';  //makes Bs4 variables available for breakpoints mixins
+@import '_functions.scss';
 @import '_functions.scss';
 @import '_reset';
 @import '_mixins.scss';
@@ -17,4 +19,3 @@
 @import '_colours.scss';
 @import '_utility-classes.scss';
 @import '_typography.scss';
-//@import '_grid';
