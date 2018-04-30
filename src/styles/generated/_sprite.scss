@@ -1,0 +1,36 @@
+//<Generated at Fri, 13 Apr 2018 16:33:23 GMT by svg-sprite
+
+.icon {
+    &:before {
+      content:' ';
+      vertical-align:middle;
+      display: inline-block;
+      background-image: url("/images/sprite-091fa51e.svg");
+      background-repeat: no-repeat;
+      background-size: 105px 126px;
+      padding: 5px 5px 5px 5px;
+
+      .no-svg & {
+        background-image: url("<%=pngPath%>");
+      }
+    }
+}
+
+
+.icon.facebook {
+  &:before {
+      background-position: 0% 0%;
+      width: 43.5px;
+      height: 74.6px;
+    }
+  }
+
+
+.icon.twitter {
+  &:before {
+      background-position: 98.21428571428572% 99.73404255319149%;
+      width: 60.2px;
+      height: 50.8px;
+    }
+  }
+

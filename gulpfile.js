@@ -47,8 +47,11 @@ require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
 // Complete
 require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
 
+// Sprite
+require('./gulp-tasks/svg-sprite')(gulp, plugins, config, errorHandler);
+
 gulp.task('develop', function(callback) {
-	plugins.runSequence('clean', 'copy-dev', ['sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
+	plugins.runSequence('clean', 'copy-dev', 'sprite', ['sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
 });
 
 gulp.task('build', function(callback) {
