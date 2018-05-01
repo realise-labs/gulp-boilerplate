@@ -11,11 +11,16 @@
 		@@if (task !== 'build') {<link rel="stylesheet" type="text/css" href="styles/main.css" media="screen">}
 	</head>
 	<body>
-		<h1 class="h1">Hello worldddd</h1>
 
-		@@include("../includes/sample.html", {
-			"title": "This is a title"
-		})
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1 class="h1">Hello worldddd</h1> @@include("../includes/sample.html", { "title": "This is a title" })
+			</div>
+		</div>
+	</div>
+
+	@@include("../includes/grid-examples.html")
 
 		@@include("../includes/footer.html")
 

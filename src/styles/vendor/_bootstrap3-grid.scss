@@ -1,0 +1,35 @@
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+ //
+ // Box sizing, responsive, and more
+ //
+
+ @at-root {
+   @-ms-viewport { width: device-width; }
+ }
+
+ html {
+   box-sizing: border-box;
+   -ms-overflow-style: scrollbar;
+ }
+
+ *,
+ *::before,
+ *::after {
+   box-sizing: inherit;
+ }
+
+// Core variables and mixins
+@import "bootstrap-3/mixins";
+
+// Core CSS
+@import "_grid-bs3";
+@import "bootstrap-3/_grid";
+
+// Utility classes
+@import "bootstrap-3/utilities";
+@import "bootstrap-3/responsive-utilities";

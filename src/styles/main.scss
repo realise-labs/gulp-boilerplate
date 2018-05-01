@@ -1,8 +1,14 @@
 // Reset css needs to go at the top!
 @import 'vendor/_meyer-reset.scss';
 
+//Variables and mixins import
 @import 'common/_base.scss';
 
-@import 'components/_components.scss';
+// Bootstrap 3 grid and utilities
+//@import 'vendor/_bootstrap3-grid.scss';
 
-@import 'vendor/_grid12.scss'; // Bootstrap grid
+// Bootstrap 4 grid and utilities
+@import 'vendor/_bootstrap4-grid.scss';
+
+//components import
+@import 'components/_components.scss';

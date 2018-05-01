@@ -6,87 +6,64 @@
 // However please feel free to extend this file and
 // add your own.
 //**********************************************/
-
-// For use with the gulp sprite plugin
+@import "mixins/_breakpoints"; // For use with the gulp sprite plugin
 @mixin sprite($icon, $type: all) {
 	&::before {
 		@if $type == all {
 			// Shares the backgrounds
 			@extend %sprite;
 		}
-
 		$iconMap: icon-attr($icon);
-
 		// Outputs dimensions in em
 		@if $type == all or $type == size {
 			height: map-get($iconMap, height) + 1;
 			width: map-get($iconMap, width) + 1;
 		}
-
 		// Outputs background position in em
 		@if $type == all or $type == bg {
 			background-position: map-get($iconMap, x) map-get($iconMap, y);
 		}
-
 		background-repeat: no-repeat;
 		content: '';
 	}
 }
-
 // font sizes declared after CSS reset has been applied
 @mixin font-size($sizeValue: 1.6) {
 	font-size: ($sizeValue * 10) + px;
 	font-size: $sizeValue + rem;
 }
-
 @mixin border-radius($radius) {
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;
 	-ms-border-radius: $radius;
 	border-radius: $radius;
 }
-
 @mixin transition($type : all, $time : .25s, $easing : ease-in-out) {
 	-webkit-transition: $type $time $easing;
 	-moz-transition: $type $time $easing;
 	-o-transition: $type $time $easing;
 	transition: $type $time $easing;
 }
-
 // Font-face mixin taken from https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
 // Note 2 sections - you only need to call the font-face mixin in your scss
-
 // String Replace
 @function str-replace($string, $search, $replace: "") {
 	$index: str-index($string, $search);
-
 	@if $index {
 		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
 	}
-
 	@return $string;
 }
-
 // Font Face
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff ttf svg) {
 	$src: null;
-
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
-
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
-
+	$extmods: ( eot: "?", svg: "#" + str-replace($name, " ", "_") );
+	$formats: ( otf: "opentype", ttf: "truetype" );
 	@each $ext in $exts {
 		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
 		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
 		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
 	}
-
 	@font-face {
 		font-family: quote($name);
 		-webkit-font-smoothing: antialiased;
