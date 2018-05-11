@@ -48,11 +48,11 @@ require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
 require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
 
 gulp.task('develop', function(callback) {
-	plugins.runSequence('clean', 'copy-dev', ['sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
+	plugins.runSequence('clean', 'copy-dev', ['scss-lint', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
 });
 
 gulp.task('build', function(callback) {
-	plugins.runSequence('clean', 'copy-build', ['sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'image-min-reminder', 'complete', callback);
+	plugins.runSequence('clean', 'copy-build', ['scss-lint', 'sass-build', 'babelify-build', 'es-lint', 'html-templating-build'], 'image-min-reminder', 'complete', callback);
 });
 
 gulp.task('release', function(callback) {
