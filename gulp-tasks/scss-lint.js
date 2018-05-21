@@ -1,7 +1,7 @@
 module.exports = function (gulp, plugins, config, errorHandler) {
 	gulp.task('scss-lint', function() {
 		var files = gulp.src(config.lintedFiles)
-			.pipe(plugins.cached('scss-lint'));
+			.pipe(plugins.rememberCache({ cacheName: 'scss-lint' }));
 
 		if (config.linting === true) {
 			return files
