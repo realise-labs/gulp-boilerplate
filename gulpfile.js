@@ -47,6 +47,11 @@ require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
 // Complete
 require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
 
+// Reset the cache (for speeding up linting)
+gulp.task('reset-cache', function () {
+	plugins.rememberCache.resetAll();
+});
+
 gulp.task('develop', function(callback) {
 	plugins.runSequence('clean', 'copy-dev', ['scss-lint', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
 });
