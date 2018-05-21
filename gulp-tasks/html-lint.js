@@ -3,7 +3,7 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 
 	gulp.task('html-lint', function() {
 		var files = gulp.src(config.paths.output.html)
-			.pipe(plugins.rememberCache({ cacheName: 'html-lint' }));
+			.pipe(plugins.cached('html-lint'));
 
 		if (config.linting === true) {
 			return files
