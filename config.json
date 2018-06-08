@@ -9,7 +9,8 @@
 			"html": ["src/pages/**/*.html", "!src/includes/**/*.html"],
 			"htmlWatch": ["src/**/*.html"],
 			"images": "src/images/**/*",
-			"static": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/data/**/*"]
+			"static": ["src/**/*", "!src/**/*.html", "!src/scripts/**/*", "!src/styles/**/*", "!src/data/**/*"],
+			"data": "src/data/**/*.json"
 		},
 		"output": {
 			"devRoot": "./dist",

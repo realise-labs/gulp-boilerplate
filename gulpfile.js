@@ -47,6 +47,38 @@ require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
 // Complete
 require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
 
+gulp.task('merge', function(callback) {
+	plugins.runSequence('clean', 'merge-data', 'compile-data');
+});
+
+var combined = {};
+
+gulp.task('merge-data', function (callback) {
+	gulp.src(config.paths.input.data)
+		.pipe(plugins.mergeJson({
+			endObj: {
+				'context': {
+					'task': 'build'
+				}
+			}
+		}))
+		.pipe(gulp.dest((output) => {
+			combined = JSON.parse(output.contents.toString());
+
+			callback();
+			return '';
+		}));
+});
+
+gulp.task('compile-data', function (callback) {
+	gulp.src(config.paths.input.html)
+		.pipe(plugins.nunjucks.compile(combined))
+		.pipe(gulp.dest(config.paths.output.devRoot));
+
+	callback();
+});
+
+
 gulp.task('develop', function(callback) {
 	plugins.runSequence('clean', 'copy-dev', ['scss-lint', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
 });
