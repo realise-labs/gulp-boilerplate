@@ -1,6 +1,8 @@
 {
-	"en": {
-		"title": "English title",
-		"age": 123
+	"translations": {
+		"en": {
+			"title": "English title",
+			"age": 123
+		}
 	}
 }
