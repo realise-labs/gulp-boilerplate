@@ -32,8 +32,7 @@ require('./gulp-tasks/es-lint')(gulp, plugins, config, errorHandler);
 require('./gulp-tasks/image-min')(gulp, plugins, config, errorHandler);
 
 // HTML templating
-require('./gulp-tasks/html-templating-develop')(gulp, plugins, config, errorHandler);
-require('./gulp-tasks/html-templating-build')(gulp, plugins, config, errorHandler);
+require('./gulp-tasks/html-templating')(gulp, plugins, config, errorHandler);
 
 // HTML standards
 require('./gulp-tasks/html-lint')(gulp, plugins, config, errorHandler);
@@ -46,6 +45,7 @@ require('./gulp-tasks/watch')(gulp, plugins, config, errorHandler);
 
 // Complete
 require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
+
 
 gulp.task('develop', function(callback) {
 	plugins.runSequence('clean', 'copy-dev', ['scss-lint', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
