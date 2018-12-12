@@ -14,6 +14,7 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 
 	gulp.task('merge-data', function (callback) {
 		gulp.src(config.paths.input.data)
+			.pipe(plugins.plumber(errorHandler))
 			.pipe(plugins.mergeJson({
 				endObj: {
 					'context': {
@@ -27,7 +28,14 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 
 	gulp.task('compile-handlebars', function () {
 		gulp.src(config.paths.input.html)
-			.pipe(plugins.nunjucks.compile(combined))
+			.pipe(plugins.plumber(errorHandler))
+			.pipe(plugins.nunjucks.compile(combined, {
+				filters: {
+					'getGlobal': function(str) {
+						return combined;
+					}
+				}
+			}))
 			.pipe(gulp.dest(config.paths.output.devRoot));
 	});
 };
