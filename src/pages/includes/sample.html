@@ -1,7 +1,9 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h1>{{ data.title }}</h1>
 
-{% macro translateTitle(content) %}
-	<h2>{{ content.title }}</h2>
-{% endmacro %}
-
-{{ translateTitle(translations.en) }}
-{{ translateTitle(translations.de) }}
+			<p>Age: {{ data.age }}</p>
+		</div>
+	</div>
+</div>

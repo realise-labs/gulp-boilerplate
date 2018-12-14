@@ -14,18 +14,8 @@
 		{% endif %}
 	</head>
 	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<p><a href="/de/index.html">See German version</a></p>
-					<p><a href="/en/index.html">See English version</a></p>
-
-					<hr/>
-				</div>
-			</div>
-		</div>
-
-		{% include "./includes/grid-examples.html" %}
+		{% set data = translations.en %}
+		{% include "./includes/sample.html" %}
 
 		{% include "./includes/footer.html" %}
 
