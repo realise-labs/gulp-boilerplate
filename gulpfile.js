@@ -34,9 +34,6 @@ require('./gulp-tasks/image-min')(gulp, plugins, config, errorHandler);
 // HTML templating
 require('./gulp-tasks/html-templating')(gulp, plugins, config, errorHandler);
 
-// HTML standards
-require('./gulp-tasks/html-lint')(gulp, plugins, config, errorHandler);
-
 // BrowserSync
 require('./gulp-tasks/browser-sync')(gulp, plugins, config, errorHandler);
 
@@ -48,7 +45,7 @@ require('./gulp-tasks/complete')(gulp, plugins, config, errorHandler);
 
 
 gulp.task('develop', function(callback) {
-	plugins.runSequence('clean', 'copy-dev', ['scss-lint', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'html-lint', 'browser-sync', 'watch', 'complete', callback);
+	plugins.runSequence('clean', 'copy-dev', ['scss-lint', 'sass-develop', 'babelify-develop', 'es-lint', 'html-templating-develop'], 'browser-sync', 'watch', 'complete', callback);
 });
 
 gulp.task('build', function(callback) {

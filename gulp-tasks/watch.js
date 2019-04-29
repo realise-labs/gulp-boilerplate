@@ -10,7 +10,7 @@ module.exports = function (gulp, plugins, config, errorHandler) {
 			plugins.runSequence('html-templating-develop', 'browser-reload');
 		});
 		gulp.watch(config.paths.input.htmlWatch, function () {
-			plugins.runSequence('html-templating-develop', 'html-lint', 'browser-reload');
+			plugins.runSequence('html-templating-develop', 'browser-reload');
 		});
 	});
 };
